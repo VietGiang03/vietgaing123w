@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Photo Gallery</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body onload="addTabFocus()">
+    <div class="gallery">
+        <img src="C:\Users\giang\OneDrive\Pictures\VS code\1.jpg" alt="Image 1" tabindex="0">
+        <img src="C:\Users\giang\OneDrive\Pictures\VS code\2.jpg" alt="Image 2" tabindex="0">
+        <img src="C:\Users\giang\OneDrive\Pictures\VS code\3.jpg" alt="Image 3" tabindex="0">
+        <img src="C:\Users\giang\OneDrive\Pictures\VS code\4.jpg" alt="Image 4" tabindex="0">
+        <img src="C:\Users\giang\OneDrive\Pictures\VS code\5.jpg" alt="Image 5" tabindex="0">
+        <img src="C:\Users\giang\OneDrive\Pictures\VS code\6.jpg" alt="Image 6" tabindex="0">
+    </div>
+    <script>
+        const images = document.querySelectorAll('img');
+
+        images.forEach(image => {
+            image.addEventListener('mouseover', () => {
+                image.style.transform = 'scale(1.2)';
+            });
+            image.addEventListener('mouseleave', () => {
+                image.style.transform = 'scale(1)';
+            });
+            image.addEventListener('focus', () => {
+                image.style.transform = 'scale(1.2)';
+            });
+            image.addEventListener('blur', () => {
+                image.style.transform = 'scale(1)';
+            });
+        });
+
+        function addTabFocus() {
+            console.log('Tab focus added');
+            images.forEach(image => {
+                image.setAttribute('tabindex', '0');
+            });
+        }
+    </script>
+</body>
+</html>
